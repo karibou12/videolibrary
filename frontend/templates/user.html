@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<nav class="header">
+    <a href="{{ url_for('update_user', user_id = g.user) }}">Modifier</a>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="films">
+    
+    <h1> Votre compte</h1>
+    
+    <div class="user" >
+        
+        <ul>
+            <li>Username: {{ g.user }}</li>
+            <li> Adresse mail: {{ user_id['user'][2] }} </li>
+
+        </ul>
+        
+        
+    </div>
+    
+    <form method="POST" action="{{ url_for('delete_user', user_id = g.user) }}">
+        <button  class="btn-supp" type="submit" value="Delete">supprimer votre compte</button>
+    </form>
+
+
+
+
+</section>
+{% endblock %}

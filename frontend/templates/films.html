@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<nav class="header">
+
+    <a href="{{ url_for('create_userfilm')}}">Ajouter un film</a>
+</nav>
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="films">
+
+    <ul>
+        {% for film in films %}
+
+        <li class="card">
+            <a href="{{ url_for('get_userfilm', titre_id= film[9])}}">
+                <img class="imgfilm" src="{{ film[8] }}" alt={{film[1]}}>
+                <p>{{ film[1] }}</p>
+            </a>
+
+        </li>
+
+        {% endfor %}
+    </ul>
+
+
+    <p>{{ message }}</p>
+</section>
+
+{% endblock %}
